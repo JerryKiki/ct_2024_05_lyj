@@ -1,10 +1,11 @@
 package com.ki.level0.p120807;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(new Solution().solution(2, 3));
-        System.out.println(new Solution().solution(11, 11));
-        System.out.println(new Solution().solution(7, 99));
+//        System.out.println(new Solution().solution(2, 3));
+//        System.out.println(new Solution().solution(11, 11));
+//        System.out.println(new Solution().solution(7, 99));
     }
 }
 
@@ -16,3 +17,4 @@ class Solution {
         return -1;
     }
 }
+

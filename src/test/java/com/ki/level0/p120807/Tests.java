@@ -11,19 +11,19 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class Tests {
     @Test
-    @DisplayName("")
+    @DisplayName(".")
     void t1(){
         assertThat(new Solution().solution(2, 3)).isEqualTo(-1);
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName(".")
     void t2(){
         assertThat(new Solution().solution(11, 11)).isEqualTo(1);
     }
 
     @Test
-    @DisplayName("")
+    @DisplayName(".")
     void t3(){
         assertThat(new Solution().solution(7, 99)).isEqualTo(-1);
     }
