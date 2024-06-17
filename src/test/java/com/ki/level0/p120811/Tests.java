@@ -18,4 +18,10 @@ public class Tests {
         int[] arr = new int[]{9, -1, 0};
         assertThat(new Solution().solution(arr)).isEqualTo(0);
     }
+    @Test
+    @DisplayName("{3, 4, 5, 10, 1, 6, 7} => 5")
+    void t3() {
+        int[] arr = new int[]{3, 4, 5, 10, 1, 6, 7};
+        assertThat(new Solution().solution(arr)).isEqualTo(5);
+    }
 }
