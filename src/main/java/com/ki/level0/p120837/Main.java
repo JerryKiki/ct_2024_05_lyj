@@ -8,6 +8,7 @@ class Solution {
         int power1 = 5;
         int power2 = 3;
         int power3 = 1;
+        //테스트
 
         int generalAnt = hp/power1;
         int soldierAnt = hp%power1/power2;
