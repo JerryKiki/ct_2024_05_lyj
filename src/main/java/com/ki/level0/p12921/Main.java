@@ -19,11 +19,16 @@ class Solution {
 
     public boolean isPrimeNumber(int n) {
 
-        for (int i = 2; i < n; i++) {
+        if (n == 1) return false;
+        else if (n == 2) return true;
+        else if (n % 2 == 0) return false;
+
+        for (int i = 3; i <= (int) Math.sqrt(n); i++) {
             if (n % i == 0) {
                 return false;
             }
         }
+
         return true;
     }
 }
