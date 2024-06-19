@@ -11,7 +11,7 @@ class Solution {
         int now = x;
 
         for (int i = 0; i < n; i++) {
-            answer[i] = x;
+            answer[i] = (long) x*(i+1);
         }
 
         return answer;

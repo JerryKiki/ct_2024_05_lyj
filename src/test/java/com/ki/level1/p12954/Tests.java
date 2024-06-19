@@ -9,14 +9,14 @@ public class Tests {
     @Test
     @DisplayName("2, 5 => {2, 4, 6, 8, 10")
     void t1() {
-        int[] arr = new int[] {2, 4, 6, 8, 10};
+        long[] arr = new long[] {2, 4, 6, 8, 10};
         assertThat(new Solution().solution(2, 5)).isEqualTo(arr);
     }
 
     @Test
     @DisplayName("4, 3 => {4, 8, 12")
     void t2() {
-        int[] arr = new int[] {4, 8, 12};
+        long[] arr = new long[] {4, 8, 12};
         assertThat(new Solution().solution(4, 3)).isEqualTo(arr);
     }
 }
