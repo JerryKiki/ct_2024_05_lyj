@@ -1,4 +1,4 @@
-package com.ki.level0.p12934;
+package com.ki.level1.p12934;
 
 import static java.lang.Math.sqrt;
 

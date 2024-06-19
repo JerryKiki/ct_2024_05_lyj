@@ -1,5 +1,6 @@
-package com.ki.level0.p12916;
+package com.ki.level1.p12916;
 
+import com.ki.level1.p12916.Solution;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -1,4 +1,4 @@
-package com.ki.level0.p12925;
+package com.ki.level1.p12925;
 
 public class Main {
 }

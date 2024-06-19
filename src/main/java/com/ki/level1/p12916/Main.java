@@ -1,9 +1,8 @@
-package com.ki.level0.p12916;
+package com.ki.level1.p12916;
 
 import java.util.Arrays;
 import java.util.Objects;
 
-//pull test 코드
 public class Main {
 }
 class Solution {
