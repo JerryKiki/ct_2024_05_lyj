@@ -19,4 +19,11 @@ public class Tests {
         int[] arr = new int[]{5, 8, 4, 0, 6, 7, 9};
         assertThat(new Solution().solution(arr)).isEqualTo(6);
     }
+
+    @Test
+    @DisplayName("0,1,2,3 => 39")
+    void t3() {
+        int[] arr = new int[]{0, 1, 2, 3};
+        assertThat(new Solution().solution(arr)).isEqualTo(39);
+    }
 }
