@@ -11,8 +11,20 @@ public class Main {
 //단, 주어진 수가 1인 경우에는 0을, 작업을 500번 반복할 때까지 1이 되지 않는다면 –1을 반환해 주세요.
 
 class Solution {
-    public int solution(int num) {
+    public static int solution(int num) {
         int answer = 0;
+        long longNum = (long) num;
+
+        while (longNum > 1) {
+            if (longNum % 2 == 0) longNum = longNum / 2;
+            else if (longNum % 2 == 1) longNum = longNum * 3 + 1;
+            answer++;
+            System.out.println(longNum);
+            if (answer >= 500) {
+                return -1;
+            }
+        }
+
         return answer;
     }
 }
