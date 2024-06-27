@@ -17,4 +17,10 @@ public class Tests {
     void t2() {
         assertThat(new Solution().solution("qwer")).isEqualTo("we");
     }
+
+    @Test
+    @DisplayName("Ricky -> c")
+    void t3() {
+        assertThat(new Solution().solution("Ricky")).isEqualTo("c");
+    }
 }
