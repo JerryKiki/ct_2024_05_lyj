@@ -13,8 +13,14 @@ import java.util.Map;
 class Solution {
     public int solution(String[] friends, String[] gifts) {
 
-        //friends 만큼의 요소를 가지는 해시맵에, key는 이름, value 1, 2는 준 수 받은 수르 저장
-        Map<String, Integer> myMap = new HashMap<String, Integer>();
+        //서로 비교
+        //String[] compare =
+
+        //선물지수
+        //준 수
+        //friends 만큼의 요소를 가지는 해시맵에, key는 이름, value 각각 수량
+        Map<String, Integer> givePresent = new HashMap<>(); //준 수
+        Map<String, Integer> getPresent = new HashMap<>(); //받은 수
 
         return 0;
     }
