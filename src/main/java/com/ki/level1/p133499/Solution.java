@@ -4,27 +4,29 @@ package com.ki.level1.p133499;
 class Solution {
     public int solution(String[] babbling) {
         String[] canPronounce = {"aya", "ye", "woo", "ma"};
+        String[] pronounceInARow = {"ayaaya", "yeye", "woowoo", "mama"};
+        String babbleCheck1 = "";
+        String babbleCheck2 = "";
         int answer = 0;
 
         //babbling의 요소를 가져와서 canPronouce와 같은 요소들을 다 지우고,
         //String이 isEmpty()면 발음 가능한 개수를 +1
-
-        //yeayaye같은 경우 break되면 안되는데 yeye만 남았을때 break가 됨...
-
         for (String babble : babbling) {
-
-            //String pronounInARow = pronoun + pronoun;
-            //if (babble.contains(pronounInARow)) break; //이걸 통과해야
-
-            for (String pronoun : canPronounce) { //반복문으로 들어가게.
-                babble = babble.replace(pronoun, "");
-                if (babble.isEmpty()) {
+            String[] pronounInARow = {"ayaaya", "yeye", "woowoo", "mama"}; //이걸 다 포함 안해야 반복문 안으로 들어옴
+            if (!babble.contains(pronounInARow[0]) && !babble.contains(pronounInARow[1]) && !babble.contains(pronounInARow[2]) && !babble.contains(pronounInARow[3])) { //이걸 통과해야
+                babbleCheck1 = babble;
+                babbleCheck2 = babble;
+                for (String pronoun : canPronounce) { //앞에서 한 번 체크
+                    babbleCheck1 = babbleCheck1.replace(pronoun, "");
+                }
+                for (int i = 3; i >= 0; i--) { //뒤에서 한번 체크
+                    babbleCheck2 = babbleCheck2.replace(canPronounce[i], "");
+                }
+                if (babbleCheck1.isEmpty() && babbleCheck2.isEmpty()) { //모두 통과하면,
                     answer++;
-                    break;
                 }
             }
         }
-
         return answer;
     }
 }

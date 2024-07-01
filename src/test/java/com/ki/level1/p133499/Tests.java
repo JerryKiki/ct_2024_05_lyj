@@ -22,10 +22,10 @@ public class Tests {
     }
 
     @Test
-    @DisplayName("\"yeayaye\", \"mawooma\" -> 2")
+    @DisplayName("\"yeayaye\", \"mawooma\", \"ayayemaaya\", \"woyeo\" -> 3")
     void t3() {
-        String[] arr = {"yeayaye", "mawooma"};
-        assertThat(new Solution().solution(arr)).isEqualTo(2);
+        String[] arr = {"yeayaye", "mawooma", "ayayemaaya", "woyeo"};
+        assertThat(new Solution().solution(arr)).isEqualTo(3);
     }
 
 
