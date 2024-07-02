@@ -15,10 +15,9 @@ class Solution {
     public int solution(String[] friends, String[] gifts) {
 
         //서로 비교
-
         Map<String, ArrayList<String>> interactions = new HashMap<>(); //사람 별로 누구한테 줬는지 기록하기 위한 해시맵
-        Map<String, Integer> givePresent = new HashMap<>(); //사람 별로 준 사람을 기록하기 위한 해시맵
-        Map<String, Integer> getPresent = new HashMap<>(); //사람 별로 받은 사람을 기록하기 위한 해시맵
+        Map<String, Integer> givePresent = new HashMap<>(); //사람 별로 준 수를 기록하기 위한 해시맵
+        Map<String, Integer> getPresent = new HashMap<>(); //사람 별로 받은 수를 기록하기 위한 해시맵
 
         for (String name : friends) {
             ArrayList<String> nowPersonGivedTo = new ArrayList<>();
@@ -40,29 +39,62 @@ class Solution {
             getPresent.put(name, nowPersonGetPresent);
         }
 
-        //주고받았는지를 먼저 검사 : a의 받은놈 arraylist에 b, c가 몇개 있는지 확인
-        for (String givedName : interactions.keySet()) {
+        System.out.println("주고받은 기록 : " + interactions.toString());
+        System.out.println("사람 별 선물 준 수량 : " + givePresent.toString());
+        System.out.println("사람 별 선물 받은 수량 : " + getPresent.toString());
+
+        HashMap<String, HashMap<String, Integer>> interactionCountPerPerson = new HashMap<>(); //준놈, <받은놈, 수량>... 형태의 해시맵
+
+        for (String givedName : friends) {
+            HashMap<String, Integer> countPerPerson = new HashMap<>();
             for (String gotName : friends) {
+                int gotCount = 0;
                 if (givedName.equals(gotName)) continue;
                 if (interactions.get(givedName).contains(gotName)) {
-
+                    for (String person : interactions.get(givedName)) {
+                        if (person.equals(gotName)) gotCount++;
+                    }
                 }
+                countPerPerson.put(gotName, gotCount);
             }
+            interactionCountPerPerson.put(givedName, countPerPerson);
         }
 
+        //System.out.println("Map 사용후 주고받은 기록 변동 없는지 체크 : " + interactions.toString());
+        System.out.println("주고받은 기록을 통해 기록한 사람별 준 수 : " + interactionCountPerPerson.toString());
 
-//        for (String name : friends) {
-//            ArrayList<String> nowPersonGivedList = interactions.get(name);
-//            for (String gotPerson : nowPersonGivedList) {
-//                for (String nameCompare : friends) {
-//                    if (nameCompare.equals(name)) continue;
-//                    else if (gotPerson.equals(nameCompare)) {
-//
-//                    }
-//                }
-//            }
-//        }
+        HashMap<String, Integer> willGetThisMonth = new HashMap<>();
 
-        return 0;
+        for (String givedName : friends) {
+            int thisPersonWillGet = 0;
+            int thisPersonPresentNum = givePresent.get(givedName) - getPresent.get(givedName);
+            System.out.println("주체(" + givedName + ")의 선물지수 : " + thisPersonPresentNum);
+            for (String gotName : friends) {
+                if (givedName.equals(gotName)) continue;
+                //주고받았는지를 먼저 검사
+                int gived = interactionCountPerPerson.get(givedName).get(gotName);
+                int got = interactionCountPerPerson.get(gotName).get(givedName);
+                int comparePersonPresentNum = givePresent.get(gotName) - getPresent.get(gotName);
+                System.out.println(gotName + "의 선물지수 : " + comparePersonPresentNum);
+                if (gived != got) { //같지 않은 경우,
+                    if (gived > got) thisPersonWillGet++; // 준 수가 더 크면 1개 받는다
+                } else { //같으면(0==0포함), 선물지수를 비교한다
+                    if (thisPersonPresentNum > comparePersonPresentNum) thisPersonWillGet++;
+                }
+            }
+            willGetThisMonth.put(givedName, thisPersonWillGet);
+        }
+
+        System.out.println("이번 달 받을 수량 : " + willGetThisMonth.toString());
+
+        int maxGet = 0;
+
+        for (int willGet : willGetThisMonth.values()) {
+            maxGet = Math.max(maxGet, willGet);
+        }
+
+        System.out.println(maxGet);
+
+        return maxGet;
     }
 }
