@@ -24,13 +24,11 @@ class Solution {
             int nowPersonGivePresent = 0;
             int nowPersonGetPresent = 0;
             for (String gift : gifts) {
-                //String gived = name + " ";
-                if (gift.contains(name + " ")) {
-                    String[] nowFrineds = gift.split(" ");
+                String[] nowFrineds = gift.split(" ");
+                if (nowFrineds[0].equals(name)) {
                     nowPersonGivedTo.add(nowFrineds[1]);
                     nowPersonGivePresent++;
-                }
-                if (gift.contains(" " + name)) {
+                } else if (nowFrineds[1].equals(name)) {
                     nowPersonGetPresent++;
                 }
             }
@@ -48,12 +46,10 @@ class Solution {
         for (String givedName : friends) {
             HashMap<String, Integer> countPerPerson = new HashMap<>();
             for (String gotName : friends) {
-                int gotCount = 0;
                 if (givedName.equals(gotName)) continue;
-                if (interactions.get(givedName).contains(gotName)) {
-                    for (String person : interactions.get(givedName)) {
-                        if (person.equals(gotName)) gotCount++;
-                    }
+                int gotCount = 0;
+                for (String person : interactions.get(givedName)) {
+                    if (person.equals(gotName)) gotCount++;
                 }
                 countPerPerson.put(gotName, gotCount);
             }
@@ -61,7 +57,7 @@ class Solution {
         }
 
         //System.out.println("Map 사용후 주고받은 기록 변동 없는지 체크 : " + interactions.toString());
-        System.out.println("주고받은 기록을 통해 기록한 사람별 준 수 : " + interactionCountPerPerson.toString());
+        System.out.println("주고받은 기록을 통해 센 사람별 준 수 : " + interactionCountPerPerson.toString());
 
         HashMap<String, Integer> willGetThisMonth = new HashMap<>();
 
@@ -72,13 +68,16 @@ class Solution {
             for (String gotName : friends) {
                 if (givedName.equals(gotName)) continue;
                 //주고받았는지를 먼저 검사
-                int gived = interactionCountPerPerson.get(givedName).get(gotName);
-                int got = interactionCountPerPerson.get(gotName).get(givedName);
-                int comparePersonPresentNum = givePresent.get(gotName) - getPresent.get(gotName);
+                int gived = interactionCountPerPerson.get(givedName).get(gotName); //지금 놈이 비교대상한테 준 수
+                int got = interactionCountPerPerson.get(gotName).get(givedName); //비교대상이 지금 놈한테 준 수
+                int comparePersonPresentNum = givePresent.get(gotName) - getPresent.get(gotName); //비교 대상의 선물지수
                 System.out.println(gotName + "의 선물지수 : " + comparePersonPresentNum);
-                if (gived != got) { //같지 않은 경우,
+                if (gived != 0 || got != 0) { //주고받은 기록이 하나라도 있으면,
                     if (gived > got) thisPersonWillGet++; // 준 수가 더 크면 1개 받는다
-                } else { //같으면(0==0포함), 선물지수를 비교한다
+                    else if (gived == got) { //같으면 선물지수를 비교한다.
+                        if (thisPersonPresentNum > comparePersonPresentNum) thisPersonWillGet++;
+                    }
+                } else { //없으면, 선물지수를 비교한다
                     if (thisPersonPresentNum > comparePersonPresentNum) thisPersonWillGet++;
                 }
             }
@@ -90,7 +89,7 @@ class Solution {
         int maxGet = 0;
 
         for (int willGet : willGetThisMonth.values()) {
-            maxGet = Math.max(maxGet, willGet);
+            if (maxGet < willGet) maxGet = willGet;
         }
 
         System.out.println(maxGet);
