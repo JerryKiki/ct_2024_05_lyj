@@ -24,6 +24,6 @@ public class Tests {
     @DisplayName("{11, 7} => 13")
     void t3() {
         int[] arr = {11, 7};
-        assertThat(new Solution().solution(arr)).isEqualTo(5);
+        assertThat(new Solution().solution(arr)).isEqualTo(13);
     }
 }

@@ -24,8 +24,10 @@ class Solution {
         //shorter + new값보다 작아야함
         //longer - shorter보다 큰 값이되 longer보다 작은 값
         int longerSideIsMax = 0;
-        //for ()
+        for (int i = longer - shorter + 1; i < longer; i++) {
+            longerSideIsMax++;
+        }
 
-        return 0;
+        return sameWithLongerSide + newSideIsMax + longerSideIsMax;
     }
 }
