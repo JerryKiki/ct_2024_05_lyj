@@ -124,8 +124,4 @@ public class Tests {
         int[] arr = new int[] {1, 2, 2, 3, 3, 4, 4, 7, 7, 7};
         assertThat(new Solution().solution(arr)).isEqualTo(7);
     }
-
-
-
-
 }

@@ -24,7 +24,7 @@ class Solution {
         int maxCount = 0;
 
         for (int i : map.keySet()) {
-            if (map.get(i) > maxCounted) {
+            if (map.get(i) > maxCount) {
                 maxCounted = i;
                 maxCount = map.get(i);
             }
