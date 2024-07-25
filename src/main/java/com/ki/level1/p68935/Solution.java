@@ -13,7 +13,7 @@ class Solution {
         //계산은 잘되는데 메모리초과가 뜬다;
         ArrayList<Integer> remains = new ArrayList<>();
 
-        while(n != 1) {
+        while(n != 1 && n != 2) {
             remains.add(n%3);
             n /= 3;
         }

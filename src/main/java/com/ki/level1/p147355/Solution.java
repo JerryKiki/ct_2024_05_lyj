@@ -9,13 +9,12 @@ class Solution {
     public int solution(String t, String p) {
         int count = 0;
         for (int i = 0; i < t.length(); i++) {
-            try {
-                String tt = t.substring(i, i + p.length());
-                if (Integer.parseInt(tt) <= Integer.parseInt(p)) {
+            int lastSub = i + p.length();
+            if (lastSub <= t.length()) {
+                String tt = t.substring(i, lastSub);
+                if (Long.parseLong(tt) <= Long.parseLong(p)) {
                     count++;
                 }
-            } catch (IndexOutOfBoundsException e) {
-                break;
             }
         }
         return count;

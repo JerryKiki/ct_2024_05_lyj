@@ -23,4 +23,10 @@ public class Tests {
     void t3() {
         assertThat(new Solution().solution(5)).isEqualTo(7);
     }
+
+    @Test
+    @DisplayName("7 => 21 => 12 => 5")
+    void t4() {
+        assertThat(new Solution().solution(7)).isEqualTo(5);
+    }
 }
