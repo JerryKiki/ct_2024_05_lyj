@@ -21,6 +21,6 @@ public class Tests {
     @Test
     @DisplayName("a B z, 4 => e F d")
     void t3() {
-        assertThat(new Solution().solution("a B z", 1)).isEqualTo("e F d");
+        assertThat(new Solution().solution("a B z", 4)).isEqualTo("e F d");
     }
 }
