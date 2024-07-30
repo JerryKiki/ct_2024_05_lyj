@@ -55,8 +55,62 @@ public class Tests {
     }
 
     @Test
-    @DisplayName("cccccaacbbbbbcbc => 0")
+    @DisplayName("cccccaacbcbc => 0")
     void t9() {
         assertThat(new Solution().solution("cccccaacbbbbbcbc")).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("abaab => 0")
+    void t10() {
+        assertThat(new Solution().solution("cccccaacbbbbbcbc")).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("akjhlaksjhaflksjhfksjdhfkja => 0")
+    void t11() {
+        assertThat(new Solution().solution("akjhlaksjhaflksjhfksjdhfkja")).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("abccba => 1")
+    void t12() {
+        assertThat(new Solution().solution("abccba")).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("abcccba=> 0")
+    void t13() {
+        assertThat(new Solution().solution("abcccba")).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("abccccbaaa=> 1")
+    void t14() {
+        assertThat(new Solution().solution("abccccbaaa")).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("abccaabaa => 0")
+    void t16() {
+        assertThat(new Solution().solution("abccaabaa")).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("a => 0")
+    void t17() {
+        assertThat(new Solution().solution("a")).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("kbaabcck => 1")
+    void t18() {
+        assertThat(new Solution().solution("kbaabcck")).isEqualTo(1);
+    }
+
+    @Test
+    @DisplayName("abbbaaba => 1")
+    void t19() {
+        assertThat(new Solution().solution("abbbaaba")).isEqualTo(1);
     }
 }
