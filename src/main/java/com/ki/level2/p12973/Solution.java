@@ -10,16 +10,19 @@ class Solution {
 
     public int solution2(String s) {
 
-        //첫번째 문자의 마지막 인덱스 확인
-        int lastIdxOfFirstChar;
-        lastIdxOfFirstChar = s.lastIndexOf(s.charAt(0));
-        if (lastIdxOfFirstChar == 0) return 0;
+        //첫번째 문자의 두번째 인덱스 확인
+        int SecondIdxOfFirstChar;
+        String ss = s.substring(1);
+        String firstChar = String.valueOf(s.charAt(0));
+        if (ss.contains(firstChar)) {
+            SecondIdxOfFirstChar = ss.indexOf(firstChar) + 1;
+        } else return 0;
 
-        if (lastIdxOfFirstChar == 1) {
+        if (SecondIdxOfFirstChar == 1) {
             s = s.substring(2);
-        } else if (lastIdxOfFirstChar == 2) return 0;
+        } else if (SecondIdxOfFirstChar == 2) return 0;
         else {
-            String confirm = s.substring(1, lastIdxOfFirstChar);
+            String confirm = s.substring(1, SecondIdxOfFirstChar);
             if (solution2(confirm) == 0) {
                 return 0;
             }
