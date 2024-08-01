@@ -113,4 +113,10 @@ public class Tests {
     void t19() {
         assertThat(new Solution().solution("abbbaaba")).isEqualTo(1);
     }
+
+    @Test
+    @DisplayName("aassddssffdddffdddfaassfassddaaaaasddsddaassfaaaafss => 1")
+    void t20() {
+        assertThat(new Solution().solution("aassddssffdddffdddfaassfassddaaaaasddsddaassfaaaafss")).isEqualTo(1);
+    }
 }
